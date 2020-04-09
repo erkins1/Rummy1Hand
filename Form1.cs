@@ -345,12 +345,12 @@ namespace Rummy
         //Logger code - Write code here to log turns for analysis later
         public void turnLogger()
         {
-            var path = @"logger.txt";
+            var path = @"..\\..\\Resources\\logger.txt";
             
             string log = File.ReadAllText(path);
 
             //Output date time if its turn 0
-            /*if (Game.TurnNumber == 0)
+            if (Game.TurnNumber == 0)
             {
                 log += "\nGame Start: " + DateTime.Now;
             }
@@ -358,10 +358,10 @@ namespace Rummy
             log += Game.Out();
 
             File.WriteAllText(path, log);
-            */
+            
 
             //This is a simplified turn logger for a CSV
-            path = @"loggerCSV.csv";
+            path = @"..\\..\\Resources\\loggerCSV.csv";
 
             log = File.ReadAllText(path);
 
@@ -372,7 +372,7 @@ namespace Rummy
 
         public void simpleLogger(int winner)
         {
-            var path = @"loggerSimple.txt";
+            var path = @"..\\..\\Resources\\loggerSimple.txt";
 
             string log = File.ReadAllText(path);
             log += "\n";
@@ -384,7 +384,7 @@ namespace Rummy
             File.WriteAllText(path, log);
 
             //This is a simplified turn logger for a CSV
-            path = @"loggerCSV.csv";
+            path = @"..\\..\\Resources\\loggerCSV.csv";
 
             log = File.ReadAllText(path);
 
@@ -583,7 +583,7 @@ namespace Rummy
 
         //A Hard AI
         //  Drawing
-        //  This takes into account what the other player drew and discarded
+        //  This is the same as the medium AI
         public void hardAIDraw()
         {
             //Get the hand of the current player
@@ -731,11 +731,6 @@ namespace Rummy
             discardAI(matchingPoints[maxIndex]);
 
         }
-
-
-
-
-
 
         //Helpful code for the AI
         //check if pair can be completed with card
@@ -887,20 +882,24 @@ namespace Rummy
         }
 
         //This will run the game multiple times for each AI level
+        //  To do this, just click Play Loop
+        //  You can change iterations Per Lvl to change how many games are played per level
         private void button1_Click(object sender, EventArgs e)     
         {
-            int iterationsPerLvl = 100;
+            int iterationsPerLvl = 200;
 
-            //for (int x = 1; x <= 3; x++)
-            //{
-            //    playLvl.Value = x;
-            //    comLvl.Value = x;
+            AI2Check.Checked = true;    //This is to make sure that the 2 AI players box is checked in this case
+
+            for (int x = 1; x <= 3; x++)
+            {
+                playLvl.Value = x;
+                comLvl.Value = x;
 
                 for (int i = 0; i < iterationsPerLvl; i++)
                 {
                     newGame();
                 }
-            //}
+            }
         }
     }
 }

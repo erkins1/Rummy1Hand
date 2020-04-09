@@ -122,5 +122,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\logger.txt" />
+    <None Include="Resources\loggerCSV.csv" />
+    <Content Include="Resources\loggerSimple.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
